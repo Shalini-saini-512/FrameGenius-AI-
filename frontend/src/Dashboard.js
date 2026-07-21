@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
-function Dashboard() {
   const API = process.env.REACT_APP_API_URL;
+
+function Dashboard() {
+
   const navigate = useNavigate();
   const [insights, setInsights] = useState(null);
   const [predictive, setPredictive] = useState(null);
