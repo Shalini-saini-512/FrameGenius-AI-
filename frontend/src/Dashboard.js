@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 function Dashboard() {
+  const API = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const [insights, setInsights] = useState(null);
   const [predictive, setPredictive] = useState(null);
@@ -16,17 +17,17 @@ function Dashboard() {
   const chatEndRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/insights")
+    fetch(`${API}/api/insights`)
       .then((res) => res.json())
       .then(setInsights)
       .catch((err) => console.error("Insights fetch failed:", err));
 
-    fetch("http://127.0.0.1:8000/api/predictive-sales")
+    fetch(`${API}/api/predictive-sales`)
       .then((res) => res.json())
       .then(setPredictive)
       .catch((err) => console.error("Predictive fetch failed:", err));
 
-    fetch("http://127.0.0.1:8000/api/frames")
+    fetch(`${API}/api/frames`)
       .then((res) => res.json())
       .then((data) => setFrames(data.frames))
       .catch((err) => console.error("Frames fetch failed:", err));
@@ -49,7 +50,7 @@ function Dashboard() {
     setChatInput("");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/chatbot", {
+      const res = await fetch(`${API}/api/chatbot`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userMsg.text }),

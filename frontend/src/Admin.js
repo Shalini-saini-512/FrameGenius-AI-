@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 
-const API = "http://127.0.0.1:8000";
+const API = process.env.REACT_APP_API_URL;
 
 function Admin() {
   const navigate = useNavigate();

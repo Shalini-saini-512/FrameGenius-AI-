@@ -195,7 +195,7 @@ function Login() {
     try {
       if (isSignUp) {
         // ---- SIGN UP ----
-        const res = await fetch('http://127.0.0.1:8000/api/register', {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password }),
@@ -214,7 +214,7 @@ function Login() {
         setPassword('');
       } else {
         // ---- LOGIN ----
-        const res = await fetch('http://127.0.0.1:8000/api/login', {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
