@@ -1,19 +1,15 @@
-/* Login.css */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #d6c6e9; /* Soft Purple Background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .login-wrapper {
-  position: relative;
-  width: 380px;
-  height: 650px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6c6e9;
 }
 
 .phone-mockup {
